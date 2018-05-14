@@ -1,5 +1,6 @@
 <template>
   <main id="main">
+    <div class="d1"></div>    
     <h1 class="main__title">Welcome to Anime Genesis</h1>
     <div class="main__option">
       <div class="main__desc main__desc-voice">
@@ -10,11 +11,19 @@
       </div>
     </div>
     <h2 class="main__subtitle">Please choose your describing method</h2>
+    <div class="d1"></div>
+    <Footer></Footer>
   </main>
 </template>
 
 <script>
-  
+import Footer from '../components/Footer'
+
+export default {
+  components: {
+    Footer
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -47,15 +56,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: .5s;
+
+    &:hover {
+      // box-shadow: .5rem .5rem #9E9E9E; 
+      transform: translateY(-0.5rem);     
+    }
+  
+    &-voice {
+      background-color: #F44336;
+    }
+
+    &-voice:hover {
+      background-color: #D32F2F;
+    }
+
+    &-text {
+      background-color: #2196F3;    
+    }
+
+    &-text:hover {
+      background-color: #1976D2;    
+    }
   }
 
-  .main__desc-voice {
-    background-color: #F44336;
+  .d1 {
+    flex: 1;
   }
-
-  .main__desc-text {
-    background-color: #2196F3;    
-  }
-
-
 </style>
