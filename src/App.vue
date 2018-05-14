@@ -1,7 +1,10 @@
 <template>
-  <div id="app">
-    <Home/>
-  </div>
+  <v-app>
+    <div id="app">
+      <Home/>
+    </div>
+  </v-app>
+  
 </template>
 
 <script>
@@ -16,6 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
+
   * {
     margin: 0;
     padding: 0;

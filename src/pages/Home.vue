@@ -2,15 +2,29 @@
   <main id="main">
     <div class="d1"></div>    
     <h1 class="main__title">Welcome to Anime Genesis</h1>
-    <div class="main__option">
-      <div class="main__desc main__desc-voice">
+    <div v-if="!selected" class="main__option">
+      <div @click="onSelectOption" class="main__desc main__desc-text">
         <ion-icon name="create"></ion-icon>
       </div>
-      <div class="main__desc main__desc-text">
+      <div @click="onSelectOption" class="main__desc main__desc-voice">
         <ion-icon name="text"></ion-icon>
       </div>
     </div>
-    <h2 class="main__subtitle">Please choose your describing method</h2>
+    <h2 v-if="!selected" class="main__subtitle">Please choose your describing method</h2>
+    <v-container v-if="selected">
+      <v-layout row>
+        <v-flex xs4 offset-xs4>
+          <v-text-field
+            name="input-1"
+            label="Kalimat pencarian"
+            textarea
+            rows="3"
+            v-model="input"
+          ></v-text-field>
+          <v-btn depressed large color="primary">Pencarian</v-btn>
+        </v-flex>
+      </v-layout>
+    </v-container>
     <div class="d1"></div>
     <Footer></Footer>
   </main>
@@ -20,20 +34,32 @@
 import Footer from '../components/Footer'
 
 export default {
+  data(){
+    return {
+      selected: false,
+      input: ""
+    }
+  },
   components: {
     Footer
+  },
+  methods: {
+    onSelectOption(){
+      this.selected = true;
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+
   #main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    // background-image: url("https://puu.sh/AlI6S/71f88c629d.jpg")
+    // background-image: linear-gradient(rgba(230, 230, 230, 0.808)), url("https://puu.sh/Am9zJ/598837bf32.png");
     background-color: #F5F5F5;    
   }
 
@@ -47,12 +73,20 @@ export default {
     font-size: 5rem;
   }
 
+  .main__textarea {
+    border-radius: 20%;
+  }
+
+  ion-icon {
+    font-size: 5rem;   
+    color: white !important;     
+  }
+
   .main__desc {
     margin: 2.5rem;
     border-radius: 50%;
     width: 10rem;
     height: 10rem;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,4 +118,5 @@ export default {
   .d1 {
     flex: 1;
   }
+
 </style>
