@@ -24,6 +24,8 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    // background-image: url("https://puu.sh/AlI6S/71f88c629d.jpg")
+    background-color: #F5F5F5;    
   }
 
   .main__title {
